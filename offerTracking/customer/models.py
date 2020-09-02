@@ -27,11 +27,11 @@ CITY_CHOICES = (
 
 class Customer(models.Model):
     company_name = models.CharField(max_length=100, verbose_name="Firma Adı")
-    company_type = models.PositiveSmallIntegerField(max_length=100, choices=TYPE_CHOICES, verbose_name="Firma İş Alanı")
+    company_type = models.PositiveSmallIntegerField( choices=TYPE_CHOICES, verbose_name="Firma İş Alanı")
     company_phone = models.CharField(max_length=11, verbose_name="Firma Telefon Numarası")
-    company_city = models.PositiveSmallIntegerField(max_length=100, choices=CITY_CHOICES, verbose_name="Konum")
+    company_city = models.PositiveSmallIntegerField( choices=CITY_CHOICES, verbose_name="Konum")
     company_adress = models.TextField(verbose_name="Adres")
-    first_contact = models.PositiveSmallIntegerField(max_length=100,choices=CONTACT_CHOICES,verbose_name="İlk İletişim")
+    first_contact = models.PositiveSmallIntegerField(choices=CONTACT_CHOICES,verbose_name="İlk İletişim")
     related_person_name1= models.CharField(max_length=100, verbose_name="1.İlgili Kişi Adı",null=True)
     related_person_title1= models.CharField(max_length=100, verbose_name="1.İlgili Ünvanı",null=True)
     related_person_phone1= models.CharField(max_length=11, verbose_name="1.İlgili Kişi Cep Telefon Numarası",null=True)
