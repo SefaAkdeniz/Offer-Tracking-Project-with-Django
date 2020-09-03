@@ -2,8 +2,20 @@ from django.db import models
 
 # Create your models here.
 
+TYPE_CHOICES = (
+    (1, 'CNC Talaşlı İmalat Teknolojileri'),
+    (2, 'Saç İşleme Makinaları')
+)
+
+COMPANY_CHOICES = (
+    (1, 'A Markası'),
+    (2, 'B Markası')
+)
+
 class Machine(models.Model):
     machine_name = models.CharField(max_length=100, verbose_name="Tezgah Adı")
+    machine_type = models.PositiveSmallIntegerField(choices=TYPE_CHOICES, verbose_name="Tezgah Tipi")
+    machine_company = models.PositiveSmallIntegerField(choices=COMPANY_CHOICES, verbose_name="Tezgah Markası")
 
 
     def __str__(self):

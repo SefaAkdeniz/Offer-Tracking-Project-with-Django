@@ -5,10 +5,10 @@ from .models import Offer
 
 
 class OfferAdmin(admin.ModelAdmin):
-    list_display = ('customer', 'personel', 'machine', 'status','offer_file','offer_date')
-    list_display_links = ('customer', 'personel', 'machine','offer_file','offer_date')
-    list_filter = ('customer', 'personel', 'machine', 'status','offer_file','offer_date')
-    list_editable = ('status',)
+    list_display = ('customer', 'personel', 'machine', 'status','offer_date','note')
+    list_display_links = ('customer', 'personel', 'machine','offer_date')
+    list_filter = ('customer', 'personel', 'machine', 'status','offer_date')
+    list_editable = ('status','note')
     search_fields = ('customer', 'personel', 'machine', 'status','offer_file','offer_date')
     list_per_page = 10
 
