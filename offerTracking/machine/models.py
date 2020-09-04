@@ -14,8 +14,8 @@ COMPANY_CHOICES = (
 
 class Machine(models.Model):
     machine_name = models.CharField(max_length=100, verbose_name="Tezgah Adı")
-    machine_type = models.PositiveSmallIntegerField(choices=TYPE_CHOICES, verbose_name="Tezgah Tipi")
-    machine_company = models.PositiveSmallIntegerField(choices=COMPANY_CHOICES, verbose_name="Tezgah Markası")
+    machine_type = models.PositiveSmallIntegerField(choices=TYPE_CHOICES, verbose_name="Tezgah Tipi",default=1)
+    machine_company = models.PositiveSmallIntegerField(choices=COMPANY_CHOICES, verbose_name="Tezgah Markası",default=1)
 
 
     def __str__(self):

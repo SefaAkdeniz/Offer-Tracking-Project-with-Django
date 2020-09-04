@@ -7,6 +7,7 @@ TYPE_CHOICES = (
     (2, 'İstif Makineleri Üreticileri'),
     (3, 'Tarım Makinaları Üreticileri'),
     (4, 'Hidrolik Pnömatikçiler'),  
+    (5, 'Diğer'),
 )
 
 CONTACT_CHOICES = (
@@ -27,14 +28,14 @@ CITY_CHOICES = (
 
 class Customer(models.Model):
     company_name = models.CharField(max_length=100, verbose_name="Firma Adı",unique=True)
-    company_type = models.PositiveSmallIntegerField( choices=TYPE_CHOICES, verbose_name="Firma İş Alanı")
-    company_phone = models.CharField(max_length=11, verbose_name="Firma Telefon Numarası")
-    company_city = models.PositiveSmallIntegerField( choices=CITY_CHOICES, verbose_name="Konum")
+    company_type = models.PositiveSmallIntegerField( choices=TYPE_CHOICES, verbose_name="Firma İş Alanı",default=1)
+    company_phone = models.CharField(max_length=11, verbose_name="Firma Telefon Numarası",default="0216")
+    company_city = models.PositiveSmallIntegerField( choices=CITY_CHOICES, verbose_name="Konum",default=34)
     company_adress = models.TextField(verbose_name="Adres")
-    first_contact = models.PositiveSmallIntegerField(choices=CONTACT_CHOICES,verbose_name="İlk İletişim")
+    first_contact = models.PositiveSmallIntegerField(choices=CONTACT_CHOICES,verbose_name="İlk İletişim",default=1)
     related_person_name1= models.CharField(max_length=100, verbose_name="1.İlgili Kişi Adı")
     related_person_title1= models.CharField(max_length=100, verbose_name="1.İlgili Ünvanı")
-    related_person_phone1= models.CharField(max_length=11, verbose_name="1.İlgili Kişi Cep Telefon Numarası")
+    related_person_phone1= models.CharField(max_length=11, verbose_name="1.İlgili Kişi Cep Telefon Numarası",default="05")
     related_person_mail1= models.CharField(max_length=100, verbose_name="1.İlgili Kişi E-Posta Adresi")
     related_person_name2= models.CharField(max_length=100, verbose_name="2.İlgili Kişi Adı",blank=True)
     related_person_title2= models.CharField(max_length=100, verbose_name="2.İlgili Ünvanı",blank=True)
